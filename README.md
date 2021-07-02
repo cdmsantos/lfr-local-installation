@@ -1,0 +1,1 @@
+# lfr-local-installation
