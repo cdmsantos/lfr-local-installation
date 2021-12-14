@@ -1,0 +1,3 @@
+Bundle-Name: Liferay Login Context Contributor
+Bundle-SymbolicName: com.liferay.login.context.contributor
+Bundle-Version: 1.0.0
