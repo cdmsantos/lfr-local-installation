@@ -1,0 +1,53 @@
+<Context crossContext="true">
+	<JarScanner className="com.liferay.support.tomcat.util.scan.NOPJarScanner" />
+
+	<!-- JAAS -->
+
+	<!--<Realm
+		className="org.apache.catalina.realm.JAASRealm"
+		appName="PortalRealm"
+		userClassNames="com.liferay.portal.kernel.security.jaas.PortalPrincipal"
+		roleClassNames="com.liferay.portal.kernel.security.jaas.PortalRole"
+	/>-->
+
+	<!--
+	Uncomment the following to disable persistent sessions across reboots.
+	-->
+
+	<!--<Manager pathname="" />-->
+
+	<!--
+	Uncomment the following to not use sessions. See the property
+	"session.disabled" in portal.properties.
+	-->
+
+	<!--<Manager className="com.liferay.support.tomcat.session.SessionLessManagerBase" />-->
+
+	<Resources>
+		<PreResources
+			base="${catalina.base}/lib/ext/portal"
+			className="com.liferay.support.tomcat.webresources.ExtResourceSet"
+			webAppMount="/WEB-INF/lib"
+		/>
+	</Resources>
+
+	<Resource
+		name="jdbc/LiferayPool"
+		auth="Container"
+		driverClass="com.mysql.jdbc.Driver"
+	    jdbcUrl="jdbc:mysql://127.0.0.1:3390/local-db?characterEncoding=UTF-8&amp;useUnicode=true"
+		user="root"
+		password="local@2021"
+		initialPoolSize="10"
+		minPoolSize="10"
+		maxPoolSize="100"
+		acquireIncrement="5"
+		maxIdleTime="43200"
+		maxIdleTimeExcessConnections="21600"
+		idleConnectionTestPeriod="600"
+		checkoutTimeout="10000"
+		testConnectionOnCheckout="true"
+		preferredTestQuery="select 1"
+		factory="org.apache.naming.factory.BeanFactory" 
+		type="com.mchange.v2.c3p0.ComboPooledDataSource" />
+</Context>
